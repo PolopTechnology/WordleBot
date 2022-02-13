@@ -17,3 +17,6 @@ greens, therefore the correct word).
 
 ### Wordle
 https://www.nytimes.com/games/wordle/index.html
+
+Update:  The starter word will always be 'zowie' so instead of waiting 8 minutes for the bot
+to calculate it, it has been hard coded in.
