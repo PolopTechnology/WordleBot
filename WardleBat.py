@@ -32,7 +32,7 @@ def values(db):
         for j in poss:
             try:
                 res = len(result(db, i, j))
-                val.append((len(db) + le) - (res + freq[i])/(len(db) + le))
+                val.append((res + freq[i])/(len(db) + le))
             except:
                 pass
         try:
@@ -40,6 +40,8 @@ def values(db):
         except:
             pass
     final_vals = dict(sorted(final_vals.items(), key=lambda item: item[1]))
+    #print(final_vals)
+    #print(max(list(final_vals.values())))
     return list(final_vals.keys())[-1]
 
 q = open("WordleWords.txt").read().split()
@@ -50,6 +52,8 @@ freqlen = [i for i, word in enumerate(freq)]
 le = len(freq)
 freq = dict(zip(freq, freqlen))
 
+print(freq['there'])
+
 poss = []
 for i in range(3):
     for j in range(3):
@@ -58,11 +62,16 @@ for i in range(3):
                 for m in range(3):
                     poss.append([i,j,k,l,m])
 
-next_word = values(q)
+#next_word = values(q)
+next_word = "abbey"
 print(next_word)
 db = q
 for i in range(5):
     res = [int(i) for i in input().split()]
+    #print(db)
+    if res == [2, 2, 2, 2, 2]:
+        print("HOORAy!")
+        break
     db = result(db, next_word, res)
     next_word = values(db)
     print(next_word)
